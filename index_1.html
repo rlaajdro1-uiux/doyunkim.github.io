@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Doyun Kim · UX/UI Designer & Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e9edf3;--panel:#f8f9fc;--ink:#151a22;--mute:#566072;--line:#c9d0dc;--dot:#b4bccb;--g1:rgba(47,75,255,.16);--g2:rgba(224,53,154,.13);--accent:#2f4bff;--tag:#e0359a;
+--head:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151c;--panel:#1b202a;--ink:#eef1f6;--mute:#9aa5b8;--line:#2f3746;--dot:#313a4c;--g1:rgba(127,146,255,.2);--g2:rgba(255,92,184,.14);--accent:#7f92ff;--tag:#ff5cb8}}
+:root[data-theme="dark"]{--bg:#12151c;--panel:#1b202a;--ink:#eef1f6;--mute:#9aa5b8;--line:#2f3746;--dot:#313a4c;--g1:rgba(127,146,255,.2);--g2:rgba(255,92,184,.14);--accent:#7f92ff;--tag:#ff5cb8}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.2px,transparent 1.4px);background-size:26px 26px;color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(38rem 28rem at 90% 0%,var(--g1),transparent 70%),radial-gradient(34rem 26rem at 0% 100%,var(--g2),transparent 70%)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1.25rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:3.5rem}
+nav b{font:800 1.1rem var(--head)}
+nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;font-weight:500;font-size:.95rem}
+nav ul a{text-decoration:none;color:var(--mute)}nav ul a:hover{color:var(--ink)}
+.hero{padding:5rem 0 4rem}
+.hero h1{font:800 clamp(3.4rem,13vw,9rem)/.9 var(--head);letter-spacing:-.03em;margin:0;position:relative;display:inline-block}
+.cursor{position:absolute;left:62%;top:88%;display:flex;align-items:flex-start;gap:.15rem;animation:drift 5s ease-in-out 1s both}
+.cursor svg{width:1.6rem;height:1.6rem;fill:var(--tag);flex:none}
+.cursor span{background:var(--tag);color:#fff;font:600 .8rem/1 var(--body);letter-spacing:0;padding:.35rem .6rem;border-radius:0 .6rem .6rem .6rem;margin-top:1rem;white-space:nowrap}
+@keyframes drift{0%{transform:translate(-9rem,-4rem);opacity:0}15%{opacity:1}100%{transform:translate(0,0);opacity:1}}
+.hero p.role{font:500 clamp(1.3rem,3vw,1.75rem)/1.3 var(--head);margin:2.5rem 0 .75rem}
+.hero p.lede{max-width:38rem;color:var(--mute);margin:0 0 1.75rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:.5rem;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--ink);color:var(--bg)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(1.8rem,4vw,2.5rem)/1.1 var(--head);margin:0 0 1.75rem;letter-spacing:-.02em}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:.75rem;padding:1.5rem;min-height:11rem}
+.card h3{font:800 1.2rem var(--head);margin:0 0 .5rem}
+.card p{margin:0;color:var(--mute)}
+.feat{background:var(--panel);border:1px solid var(--line);border-radius:.75rem;padding:1.75rem;margin-bottom:1rem}
+.feat h3{font:800 1.6rem var(--head);margin:0 0 .25rem}
+.feat .sub{color:var(--mute);margin:0 0 1rem}
+.feat .stat{font:800 1.25rem/1.3 var(--head);margin:1rem 0}
+.feat details{margin-top:1rem;border-top:1px solid var(--line);padding-top:1rem}
+.feat summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.feat details h4{font:800 1rem var(--head);margin:1.25rem 0 .25rem}
+.feat details p,.feat details li{color:var(--mute);max-width:40rem}
+.feat details ul{margin:.25rem 0;padding-left:1.25rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 0;padding:0;list-style:none}
+.tags li{border:1px solid var(--line);border-radius:2rem;padding:.2rem .75rem;font-size:.9rem}
+.skills{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.skills h3{font:800 1.05rem var(--head);margin:0 0 .5rem}
+.skills p{margin:0;color:var(--mute)}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 2rem 1.5rem}
+.tl li::before{content:"";position:absolute;left:-.45rem;top:.5rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--accent)}
+.tl time{font-weight:600;color:var(--mute);font-size:.95rem}
+.tl h3{font:800 1.15rem var(--head);margin:.1rem 0}
+.tl .r{font-weight:500}
+.tl p{margin:.25rem 0 0;color:var(--mute);max-width:40rem}
+.contact a.big{font:800 clamp(1.5rem,5vw,2.6rem)/1.1 var(--head);word-break:break-all}
+.links{display:flex;gap:1.25rem;margin:1.5rem 0 0;flex-wrap:wrap}
+footer{padding:2rem 0;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line)}
+.hero{position:relative}
+.hero h1{z-index:1}
+.hero h1::before{content:"";position:absolute;inset:-.6rem -1rem;outline:1.5px solid var(--accent);outline-offset:-4px;pointer-events:none;background:linear-gradient(var(--accent),var(--accent)) left top/8px 8px no-repeat,linear-gradient(var(--accent),var(--accent)) right top/8px 8px no-repeat,linear-gradient(var(--accent),var(--accent)) left bottom/8px 8px no-repeat,linear-gradient(var(--accent),var(--accent)) right bottom/8px 8px no-repeat}
+.deco{position:absolute;inset:0;pointer-events:none;z-index:0}
+.deco span{position:absolute}
+.s1{right:4%;top:1rem;width:5rem;height:5rem;border-radius:50%;background:var(--tag);opacity:.9}
+.s2{right:15%;top:4.5rem;width:4rem;height:4rem;border:2px solid var(--ink);border-radius:.6rem;transform:rotate(12deg)}
+.note{width:9.5rem;padding:.9rem 1rem;font:600 .95rem/1.3 var(--head);color:#2b2500;background:#ffe27a;box-shadow:0 12px 22px -12px rgba(0,0,0,.4)}
+.n1{right:1.5rem;bottom:4.5rem;transform:rotate(4deg)}
+.n2{right:10rem;bottom:1.5rem;background:#ffb3d9;transform:rotate(-5deg)}
+.feat,.card{box-shadow:0 14px 30px -22px rgba(20,26,34,.45)}
+@media (max-width:52rem){.note,.s2{display:none}.s1{width:3rem;height:3rem}}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}html{scroll-behavior:auto}}
+@media (max-width:34rem){nav ul{gap:.9rem}.cursor{left:48%}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>DK</b>
+<ul><li><a href="#work">Work</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+
+<main class="wrap">
+<header class="hero">
+<div class="deco" aria-hidden="true"><span class="s1"></span><span class="s2"></span><span class="note n1">Research first</span><span class="note n2">Then prototype</span></div>
+<h1>Doyun Kim<span class="cursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 2l17 8-7.5 2.2L9.5 20z"/></svg><span>Doyun</span></span></h1>
+<p class="role">UX/UI designer and web developer</p>
+<p class="lede">I design interfaces that help people feel included online. I graduated from UC Irvine in Informatics with a Human-Computer Interaction specialization and now study Integrated Design, Business and Technology at USC. I work from research and wireframes in Figma through to working code.</p>
+<div class="btns"><a class="btn main" href="#work">See my work</a>
+<a class="btn" href="Doyun_Kim_Resume_2026.pdf" target="_blank" rel="noopener">Download resume</a>
+<a class="btn" href="Doyun_Kim_Portfolio.pdf" target="_blank" rel="noopener">Download portfolio</a></div>
+</header>
+
+<section id="work"><h2>Work</h2>
+<article class="feat"><h3>Sleep on the road, with Belkin</h3>
+<p class="sub">USC studio project in progress, fall 2026. Team of four, in collaboration with Belkin. My role: UX researcher.</p>
+<p>Working adults who travel often lose the wind-down routine that helps them sleep at home. We are designing a travel-friendly product that recreates a restful sleep environment anywhere, using affordable, widely available technology and without disturbing the people or space around the user.</p>
+<ul class="tags"><li>Concept development</li><li>User journey mapping</li><li>Product sketching</li></ul>
+<details><summary>Read the case study so far</summary>
+<h4>Who we design for</h4>
+<p>Working adults aged 25 to 40 who travel for work and leisure, spend a lot of time on screens, and feel unrested even after sleeping enough hours. Their goal is comfortable, uninterrupted sleep anywhere and anytime.</p>
+<h4>Where we focused</h4>
+<p>We mapped the evening from setting up the room to falling asleep, and chose the wind-down stage as our solution space. Our solution space is physical and mental relaxation plus natural light exposure, using sight, sound, touch, and scent.</p>
+<h4>Four concept directions</h4>
+<ul><li>A glasses and eye mask convertible with light-adjusting lenses and bone conduction speakers.</li>
+<li>Moon (E)scape, a collapsible charging dock that doubles as a night light.</li>
+<li>A nightstand dock and portable puck with adaptable light and sound.</li>
+<li>My concept, the Scent Speaker: a compact bedside speaker with a built-in scent diffuser, adjustable scent intensity, and swappable scent cartridges.</li></ul>
+</details></article>
+
+<article class="feat"><h3>Compassionate AI across cultures</h3>
+<p class="sub">USC project in progress, fall 2026. Group of five, in collaboration with Compassion AI.</p>
+<p>Generative AI can favor dominant Western perspectives and flatten cultural nuance, so people from diverse cultures often get responses that miss the mark. We are studying what compassionate AI needs to look like for them.</p>
+<ul class="tags"><li>Trend research</li><li>Foresight</li><li>Cultural inclusion</li></ul>
+<details><summary>Read the findings so far</summary>
+<h4>What we found and heard</h4>
+<p>Compassion is shifting from sounding kind to understanding context and producing meaningful outcomes. People told us that compassion goes beyond empathy, that AI should ask questions before validating or answering, and that it should strengthen human compassion rather than replace it.</p>
+<h4>Three trends</h4>
+<ul><li>Cultural context is becoming essential.</li>
+<li>Personalization, including memory, enables cultural relevance.</li>
+<li>Human judgment stays critical in sensitive areas like healthcare and emotional support.</li></ul>
+<h4>Three directions we are exploring</h4>
+<p>AI for people from other cultures living in the US, how major AI companies support users from different cultures, and AI in other countries, including for travelers.</p>
+</details></article>
+
+<article class="feat"><h3>Shoppyist</h3>
+<p class="sub">Browser extension for the startup Shoppyist. Team MatchaCart, five students. My role: UI/UX designer, September 2025 to March 2026.</p>
+<p>Companies spend on politics through donations, lobbying, and advocacy, but shoppers rarely see it. Shoppyist shows a brand's score on an issue you care about, right on the shopping page. You can <b>stay</b> on the site or <b>go</b> to a higher-scoring alternative.</p>
+<p class="stat">95.2% of 20+ surveyed shoppers said they would use it while shopping.</p>
+<ul class="tags"><li>Figma</li><li>Vue.js</li><li>MongoDB</li><li>Firebase</li><li>Cloudflare Workers</li></ul>
+<p><a href="https://www.figma.com/design/XkPV8cVh5Dol4taRPAuZal/Prototype-Interfaces?node-id=929-1681&amp;t=FQBQVProBTwRrYau-1" target="_blank" rel="noopener">View the Figma prototype</a></p>
+<details><summary>Read the case study</summary>
+<h4>Design</h4>
+<ul><li>Merged the score and the alternatives into one panel, so everything is on a single page.</li>
+<li>Built the Stay/Go idea into a floating badge and a slide-out Go-list.</li>
+<li>Kept one architecture with a color theme per issue, plus light and dark modes.</li>
+<li>Designed login, signup, onboarding, and a plain-language transparency note.</li></ul>
+<h4>Accessibility and ethics</h4>
+<ul><li>Checked contrast with a11y tools and added clearer labels and shadows.</li>
+<li>Showed each score as a ring, a color, a word, and a number, so color is never the only signal.</li>
+<li>Tracked only data needed for the experience, anonymized it, and replaced generic disclosures with clear explanations.</li></ul>
+<h4>Testing</h4>
+<p>The team tested across Amazon, Nike, and Adidas in repeated cycles, ran a survey with online shoppers, did a quick usability test with a colorblind user, and completed a heuristic evaluation. Feedback stressed transparency and readability.</p>
+<h4>Next steps</h4>
+<p>Google sign-in, a settings page, referral tracking, separate builds for each issue, and testing with a wider age group before launch.</p>
+</details></article>
+<article class="feat"><h3>Positivity Perks</h3>
+<p class="sub">Team project at UCI, January to March 2023. Six students. 2nd place at a showcase sponsored by Riot Games, IDEO, and Fair Play Alliance.</p>
+<p>Our question: how might we design healthy, inclusive digital spaces where people thrive? We narrowed it to online ranked games, where toxic behavior is common, and designed Positivity Perks, a system that rewards positive communication and teamwork.</p>
+<ul class="tags"><li>User research</li><li>Miro</li><li>Prototyping</li><li>Usability testing</li></ul>
+<p><a href="https://drive.google.com/file/d/13Ckvw5zePTXYR0rH8eGJHw5tWuIcsVkK/view?usp=sharing" target="_blank" rel="noopener">View the full project</a> &nbsp;·&nbsp; <a href="https://drive.google.com/file/d/1jrwiLy4aq_swlMQh0cyMw0RbUpOTZicJ/view?usp=sharing" target="_blank" rel="noopener">View Positivity Perks</a></p>
+<details><summary>Read the case study</summary>
+<h4>Research</h4>
+<p>I ran a literature review on goal alignment, team structure, and matchmaking, and turned it into design principles for our concepts. The team also observed ranked play and ran six semi-structured interviews with game developers, beginning gamers, and players who play as part of their personal identity. We grouped everything into codes and themes with thematic analysis in Miro.</p>
+<h4>Concepts</h4>
+<p>We tested four ideas: ranking penalties for poor communication, in-match rewards for helpful communication, filtering hostile language, and design standards for developers. Players preferred concepts that punished poor communication, while developers preferred rewarding good communication. Both groups wanted immediate feedback and a multi-part solution.</p>
+<h4>Prototype</h4>
+<p>Positivity Perks grew from storyboards and task flows into paper and low-fidelity prototypes for login, home, rewards, community, and match history pages. We tested it with a think-aloud protocol, then iterated on the themes we found.</p>
+</details></article>
+
+<article class="feat"><h3>Distraction News redesign</h3>
+<p class="sub">Group project at UCI. Team of four.</p>
+<p>The children's show Distraction News moves fast, with flashing images and quick cuts. That overwhelms many neurodiverse learners, especially those with ADHD or autism. We redesigned it so viewers control how stimulating it is.</p>
+<ul class="tags"><li>Wireframes</li><li>Storyboards</li><li>Accessibility</li></ul>
+<details><summary>Read the case study</summary>
+<h4>Why it needed to change</h4>
+<p>The tempo was too fast to follow, sound and visuals came at once, and nothing supported memory or focus. We grounded the critique in Cognitive Load Theory, Mayer's multimedia principles, and Universal Design for Learning, and compared it with BrainPOP and GoNoodle.</p>
+<h4>What we designed</h4>
+<ul><li>A "Calm Mode" that removes flashing lights and background noise.</li>
+<li>A "Distraction Level" slider, plus pause, repeat, and playback speed controls.</li>
+<li>Subtitles in multiple languages, adjustable difficulty, and a digital note-taking area.</li>
+<li>Before and after wireframes, and a four-panel storyboard of a child using the new version.</li></ul>
+<h4>Ethics and next steps</h4>
+<p>We planned A/B testing with neurodiverse learners, with consent, data privacy, and student dignity as priorities. Screen reader support and calm comprehension checks came next.</p>
+</details></article>
+
+<article class="feat"><h3>UCI League GOATS</h3>
+<p class="sub">Project management class at UCI. Team EASYMONEY, five students.</p>
+<p>We planned a League of Legends tournament for UCI students and staff to reconnect people with campus through gaming. We chose the game by team vote, scouted the UCI Esports venue, built the budget and rank-based brackets, and made the poster and registration form. The event was not held because we could not secure funding.</p>
+<details><summary>Read what we learned</summary>
+<h4>What we produced</h4>
+<p>A scope statement, Gantt chart, cost estimate, streaming plan for Facebook, Discord, and Twitch, a registration form, and an event poster with a QR code for sign-up.</p>
+<h4>What we learned</h4>
+<p>Sponsors were hard to find, and costs ran higher than our first estimate. Next time I would contact sponsors at the start of the project instead of the middle. We also learned to weigh every teammate's opinion and that a problem usually has more than one good answer.</p>
+</details></article>
+</section>
+
+<section id="skills"><h2>Skills</h2>
+<div class="skills">
+<div><h3>Design</h3><p>Figma, Sketch, Adobe Illustrator, wireframing and prototyping, user research, design thinking</p></div>
+<div><h3>Build</h3><p>JavaScript, Python, Java, C++</p></div>
+<div><h3>Collaborate</h3><p>Miro, Slack, project management</p></div>
+</div></section>
+
+<section id="experience"><h2>Experience</h2>
+<ol class="tl">
+<li><time>Aug 2026 – present</time><h3>University of Southern California</h3><p class="r">Graduate student, M.S. in Integrated Design, Business and Technology</p><p>Now in my first semester.</p></li>
+<li><time>2025 – Mar 2026</time><h3>University of California, Irvine</h3><p class="r">Student, Human-Computer Interaction specialization</p><p>Returned to finish my B.S. in Informatics. GPA 3.64, Dean's Honor List for four quarters. Worked on UI/UX projects, including Shoppyist.</p></li>
+<li><time>Jan 2025 – present</time><h3>Real estate ownership and management, Haeundae, South Korea</h3><p class="r">Independent property manager and owner</p><p>Manage a commercial property. Hold tenant meetings to learn how the space and the business can work better, which taught me about tenant experience and service design.</p></li>
+<li><time>Aug 2023 – Jan 2025</time><h3>11th Maneuver Division, South Korea</h3><p class="r">Chaplain assistant and rifleman</p><p>Completed mandatory military service. Supported religious services and unit morale while meeting combat readiness duties. Built teamwork, leadership, and quick decision-making under pressure.</p></li>
+<li><time>Sep 2021 – 2023</time><h3>University of California, Irvine</h3><p class="r">Student</p><p>Transferred as a Computer Science major, then moved to Informatics to focus on human-centered computing and design.</p></li>
+<li><time>Aug 2020 – May 2021</time><h3>Veritas Academy</h3><p class="r">Remote teacher assistant</p><p>Redesigned subject syllabi with a user-centered approach and built an interactive scheduling calendar for each classroom in C++ and Python.</p></li>
+<li><time>2019 – 2021</time><h3>Irvine Valley College</h3><p class="r">Student</p><p>Earned an A.A. in Computer Science, magna cum laude, as an international student before transferring.</p></li>
+</ol></section>
+
+<section id="contact" class="contact"><h2>Contact</h2>
+<p>Looking for a UX/UI or front-end collaborator? Send me a note.</p>
+<a class="big" href="mailto:rlaajdro1@gmail.com">rlaajdro1@gmail.com</a>
+<div class="links"><a href="https://www.linkedin.com/in/doyun-kim-a2aa9a261/">LinkedIn</a><a href="https://www.instagram.com/nuyod_mik/">Instagram</a></div>
+</section>
+</main>
+<footer><div class="wrap">© 2026 Doyun Kim</div></footer>
+</body>
+</html>
